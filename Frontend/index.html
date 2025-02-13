@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dark Mode To-Do List</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+    <style>
+      /* Custom Scrollbar */
+      #todoData::-webkit-scrollbar {
+        width: 8px; /* Slim scrollbar */
+      }
+
+      #todoData::-webkit-scrollbar-track {
+        background: #2d2d2d; /* Dark background */
+        border-radius: 8px;
+      }
+
+      #todoData::-webkit-scrollbar-thumb {
+        background: #4a5568; /* Dark gray */
+        border-radius: 8px;
+        border: 2px solid #2d2d2d; /* Creates spacing effect */
+      }
+
+      #todoData::-webkit-scrollbar-thumb:hover {
+        background: #718096; /* Lighter on hover */
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 flex justify-center items-center min-h-screen p-4">
+    <main class="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <!-- Form Section -->
+      <section
+        id="todoForm"
+        class="bg-gray-800 shadow-lg rounded-2xl p-6 sm:p-8 w-full h-[420px] max-w-md mx-auto"
+      >
+        <h2 class="text-2xl font-bold text-gray-200 text-center mb-6">
+          To-Do List
+        </h2>
+
+        <div class="mb-4">
+          <label class="block text-gray-300 mb-2">Your Task Name</label>
+          <input
+            id="task"
+            type="text"
+            placeholder="Enter Task"
+            class="w-full px-4 py-2 border rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-300 mb-2">Message</label>
+          <textarea
+            id="message"
+            rows="4"
+            placeholder="Enter Details"
+            class="w-full px-4 py-2 border rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+          ></textarea>
+        </div>
+
+        <button
+          id="submit"
+          class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300"
+        >
+          Add Task
+        </button>
+      </section>
+
+      <!-- Task List Section -->
+      <section
+        id="todoData"
+        class="bg-gray-800 shadow-lg rounded-2xl p-6 w-full h-[420px] overflow-y-auto max-w-lg mx-auto"
+      >
+        <!-- Empty State -->
+        <div
+          id="emptyState"
+          class="flex flex-col items-center justify-center h-full text-gray-400"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-16 h-16 mb-4"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 6v6l4 2"
+            />
+          </svg>
+          <p class="text-lg">No tasks yet. Start adding some!</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
